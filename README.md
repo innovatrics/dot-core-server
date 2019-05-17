@@ -1,1 +1,1 @@
-Dedicated branch for Github Pages https://innovatrics.github.io/smartface/
+Dedicated branch for Github Pages https://innovatrics.github.io/dot-core-server/
