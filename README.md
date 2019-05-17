@@ -1,3 +1,5 @@
+# DOT Core Server
+
 dot-core-server is a ready-to-deploy toolkit server components that help organizations integrate identity documents [optical character recognition (OCR)](https://github.com/innovatrics/dot-ocr-server) and industry-leading facial biometrics into their applications.
 
 # Getting Started
