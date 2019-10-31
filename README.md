@@ -7,6 +7,6 @@ This repo is dedicated to API versioning (and will not contain whole implementat
 # Getting Started
 Any system can integrate with dot-core-server by using API (OpenAPI), please:
 
-1. Check the API documentation using [Swagger UI](https://innovatrics.github.io/dot-core-server/?url=https://raw.githubusercontent.com/innovatrics/dot-core-server/master/api/swagger.json)
+1. Check the API documentation using [Swagger UI](https://innovatrics.github.io/dot-core-server/?url=https://raw.githubusercontent.com/innovatrics/dot-core-server/4.1.0/api/swagger.json)
 
 2. Play with live demo API endpoint or GUI (for more information ask Innovatrics)
