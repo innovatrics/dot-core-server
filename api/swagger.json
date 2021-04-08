@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "6.2.1",
+    "version": "6.3.0",
     "title": "DOT Core Server API Documentation"
   },
   "host": "localhost",
@@ -452,6 +452,11 @@
           "type": "boolean",
           "example": true,
           "description": "Whether to calculate face attributes"
+        },
+        "cropImageWithRemovedBackground": {
+          "type": "boolean",
+          "example": true,
+          "description": "Whether to return the cropped image with removed background"
         }
       },
       "title": "DetectManyRequest",
@@ -508,6 +513,11 @@
           "type": "boolean",
           "example": true,
           "description": "Whether to calculate face attributes"
+        },
+        "cropImageWithRemovedBackground": {
+          "type": "boolean",
+          "example": true,
+          "description": "Whether to return the cropped image with removed background"
         }
       },
       "title": "DetectRequest",
@@ -580,7 +590,7 @@
           "type": "string",
           "format": "byte",
           "example": "BASE64",
-          "description": "Base64 encoded face image"
+          "description": "Base64 encoded face image, jpg format"
         },
         "facialFeatures": {
           "description": "FacialFeatures object",
@@ -593,6 +603,12 @@
         "faceAttributes": {
           "description": "FaceAttributes object",
           "$ref": "#/definitions/FaceAttributes"
+        },
+        "cropImageWithRemovedBackground": {
+          "type": "string",
+          "format": "byte",
+          "example": "BASE64",
+          "description": "Base64 encoded cropped face image without background, png format"
         }
       },
       "title": "DetectedFace",
@@ -613,7 +629,8 @@
             "INVALID_IMAGE",
             "INVALID_PROBE_IMAGE",
             "INVALID_REFERENCE_IMAGE",
-            "UNEXPECTED_ERROR"
+            "UNEXPECTED_ERROR",
+            "ALGORITHM_NOT_AVAILABLE"
           ]
         },
         "errorMessage": {
@@ -660,6 +677,10 @@
         },
         "passiveLiveness": {
           "description": "FaceAttribute object",
+          "$ref": "#/definitions/FaceAttribute"
+        },
+        "faceMask": {
+          "description": "FaceAttribute object. Available only in Balanced or Accurate detection mode",
           "$ref": "#/definitions/FaceAttribute"
         }
       },
@@ -925,7 +946,6 @@
         "artifact",
         "group",
         "name",
-        "time",
         "version"
       ],
       "properties": {
@@ -948,11 +968,6 @@
           "type": "string",
           "example": "3.5.0",
           "description": "Version of the application"
-        },
-        "time": {
-          "type": "string",
-          "example": "2019-06-11T12:54:27.800Z",
-          "description": "Timestamp of when the application was built"
         }
       },
       "title": "InfoBuild",
@@ -1336,7 +1351,9 @@
               "REFERENCE_IMAGE_NO_FACE_DETECTED",
               "PROBE_IMAGE_MULTIPLE_FACES_DETECTED",
               "REFERENCE_IMAGE_MULTIPLE_FACES_DETECTED",
-              "INCOMPATIBLE_TEMPLATES"
+              "INCOMPATIBLE_TEMPLATES",
+              "CORRUPTED_TEMPLATES",
+              "WRONG_VERSION_TEMPLATES"
             ]
           }
         }
